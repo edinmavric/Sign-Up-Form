@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/app.css">
+    <script src="assets/app.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Basic-Login-Form -->
+<div class="page">
+    <div class="form-div">
+        <form name="myForm" onsubmit="return validateForm()">
+            <div class="input-info"><h1>Sing up</h1>
+            <a>Fill all information before singing up</a></div>
+
+            <input type="text" id="nameSurName" value="" onsubmit="hasWhiteSpace()" placeholder="Name and Surname: ">
+            <div class="email-div">
+            <input type="email" id="ename" value="" placeholder="Email:">
+            <input type="email" id="cename" value="" placeholder="Confirm Email:"></div>
+            <div class="pass-div">
+            <input type="password" id="pname"  value="" placeholder="Password:">
+            <input type="password" id="cpname"  value="" placeholder="Confirm Password:"></div>
+            <button type="submit" value="Submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

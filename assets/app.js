@@ -1,77 +1,73 @@
-let forma = document.getElementById('form1');
+let form = document.getElementById('form1');
 let button = document.getElementById('btn');
 
+let nameSurname = document.getElementById('nameSurName');
 let password = document.getElementById('pname');
 let confirmPassword = document.getElementById('cpname');
 let email = document.getElementById('ename');
 let confirmEmail = document.getElementById('cename');
 
+let nameError = document.getElementById('name-error');
 let emailError = document.getElementById('email-error');
 let confirmEmailError = document.getElementById('cemail-error');
 let passError = document.getElementById('pass-error');
 let confirmPassError = document.getElementById('cpass-error');
 
+form.addEventListener('submit', e => validateForm(e));
 
-const validateForm = () => {
+const validateForm = (e) => {
+    
+    e.preventDefault();
 
-    greenValidateForm();
-    
-    if (email.value.length < 9) {
-        emailError.innerHTML = 'Email is incorrect!'
-        email.style.border = '1px solid red'
-        return false;
-    } 
-    
-    if (email.value.length != confirmEmail.value.length) {
-        confirmEmailError.innerHTML = 'Use same Email info!'
-        confirmEmail.style.border = '1px solid red'
-        return false;
-    } 
-    
-    if (password.value.length < 8) {
-        passError.innerHTML = 'Password must contain 8 characters!'
-        password.style.border = "1px solid red";
-        return false;
-    } 
-    
-    if (password.value.length == confirmPassword.value.length) {
-        prompt("Succesfull Sing up!", "Enter your username");
-        return true;
+    if (nameSurname.value === "") {
+        nameError.innerHTML = "Name and Surname are required!"
+        nameSurname.style.border = '2px solid red'
+    } else {
+        nameError = ""
+        nameSurname.style.border = '2px solid green'
     }
-    
-    if (password.value.length != confirmPassword.value.length) {
-        confirmPassError.innerHTML = "Passwords doesn't match!";
-        confirmPassword.style.border = "1px solid red";
-        return false;
+
+    if (email.value === "") {
+        emailError.innerHTML = "Email is required!"
+        email.style.border = '2px solid red'
+    } else if (email.value < 9) {
+        emailError.innerHTML = "Email is not valid!"
+        email.style.border = '2px solid red'
+    } else {
+        email.style.border = '2px solid green'
+        emailError.innerHTML = ""
+    }
+
+    if (confirmEmail.value === "") {
+        confirmEmailError.innerHTML = "Please confirm email!"
+        confirmEmail.style.border = '2px solid red'
+    } else if (confirmEmail.value !== email.value) {
+        confirmEmailError.innerHTML = "Emails don't match"
+        confirmEmail.style.border = '2px solid red'
+    } else {
+        confirmEmail.style.border = '2px solid green'
+        confirmEmailError.innerHTML = ""
+    }
+   
+    if (password.value === "") {
+        passError.innerHTML = "Password is required!"
+        password.style.border = '2px solid red'
+    } else if (password.value < 8 ) {
+        passError.innerHTML = "Password should be atleast 8 characters long!"
+        password.style.border = '2px solid red'
+    } else {
+        password.style.border = '2px solid green'
+        passError.innerHTML = ""
+    }
+
+    if (confirmPassword.value === "") {
+        confirmPassError.innerHTML = "Please confirm password!"
+        confirmPassword.style.border = '2px solid red'
+    } else if (confirmPassword.value !== password.value) {
+        confirmPassError.innerHTML = "Passwords don't match"
+        confirmPassword.style.border = '2px solid red'
+    } else {
+        confirmPassword.style.border = '2px solid green'
+        confirmPassError.innerHTML = ""
     }
 }
-
-const greenValidateForm = () => {
-
-    if (email.value.length >= 9) {
-        emailError.innerHTML = 'Email is correct!'
-        email.style.border = '1px solid green'
-        return true;
-    } 
-    
-    if (email.value.length == confirmEmail.value.length) {
-        confirmEmailError.innerHTML = 'Email info matches!'
-        confirmEmail.style.border = '1px solid green'
-        return true;
-    } 
-
-    if (password.value.length >= 8) {
-        passError.innerHTML = 'Password can be used!'
-        password.style.border = "1px solid green";
-        return true;
-    } 
-
-    if (password.value.length == confirmPassword.value.length) {
-        confirmPassError.innerHTML = "Passwords match!";
-        confirmPassword.style.border = "1px solid green";
-        return true;
-    }
-
-}
-
-// button.addEventListener('submit', validateForm);

@@ -9,14 +9,13 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- Basic-Login-Form -->
 <div class="page">
     <div class="form-div">
-        <form name="myForm" id="form1" onsubmit="return validateForm()">
-            <div class="input-info"><h1>Sing up</h1>
-            <a>Fill all information before singing up</a></div>
+        <form name="myForm" id="form1">
+            <div class="input-info"><h1>Sign up</h1>
+            <a>Fill all information before signing up</a></div>
 
-            <input type="text" id="nameSurName" value="" placeholder="Name and Surname: " required>
+            <input type="text" id="nameSurName" class="duzina"  value="" placeholder="Name and Surname: "><p id="name-error"></p>
         <div class="email-div">
             <div class="firstInput"><input type="email" id="ename" value="" placeholder="Email:"><p id="email-error"></p></div>
             <div class="secondInput"><input type="email" id="cename" value="" placeholder="Confirm Email:"><p id="cemail-error"></p></div>
